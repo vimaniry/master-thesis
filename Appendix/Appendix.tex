@@ -1,0 +1,39 @@
+% ***************************************************
+% Appendix
+% ***************************************************
+\makeatletter
+% Patch list of figures
+\renewcommand{\listoffigures}{%
+  \section{\listfigurename}%
+  \@mkboth{\listfigurename}{\listfigurename}%
+  \@starttoc{lof}%
+}
+
+% Patch list of tables
+\renewcommand{\listoftables}{%
+  \section{\listtablename}%
+  \@mkboth{\listtablename}{\listtablename}%
+  \@starttoc{lot}%
+}
+\makeatother
+
+\appendix
+
+\appendix
+\AppChapter{}
+
+\renewcommand{\listfigurename}{Table of Figures}
+\listoffigures
+
+\clearpage
+
+\renewcommand{\listtablename}{Table of Tables}
+\listoftables
+
+\AppChapter{}
+
+\input{Appendix/Setup}
+
+\AppChapter{}
+
+\input{Appendix/License}

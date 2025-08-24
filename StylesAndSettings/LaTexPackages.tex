@@ -1,0 +1,104 @@
+%\usepackage[round]{cite}				 %Allows abbreviated numerical citations.
+\usepackage{pdfpages}			 %Allows you to include full-page pdfs.
+\usepackage{wrapfig}			 %Lets you wrap text around figures.
+\usepackage{bm} 				 %Bolded maths characters.
+\usepackage{upgreek}			 %Upright Greek characters.
+\usepackage{dsfont}				 %Double-struck fonts.
+\usepackage{simplewick}			 %For typesetting Wick contractions.
+\usepackage{mathtools}		     %Can be used to fine-tune the maths presentation.	
+\usepackage{framed}			     %For boxed text.
+\usepackage{microtype}			 %pdfLaTeX will fix your kerning.
+\usepackage{marvosym}			 %Include symbols (like the Euro symbol, etc.).
+\usepackage{color}				 %Nice for scalable pdf graphics using Inkscape.
+\usepackage{transparent}	     %Nice for scalable pdf graphics using Inkscape.
+\usepackage{placeins}			 %Lets you put in a \FloatBarrier to stop figures floating past this command.
+\usepackage{mdframed,mdwlist}    %Use these for nice lists (less white space).
+\usepackage{float}               %Improved interface for floating objects. 
+\usepackage{mathdots}            %Changed the basic LaTeX and plain TeX commands.
+\usepackage{eucal}               %Font shape definitions to use the Euler script symbols in math mode.
+\usepackage{listings}
+\usepackage{array}               %Extending the array and tabular environments.
+\usepackage{stmaryrd}            %The StMary’s Road symbol font.
+\usepackage{pifont}              %Access to PostScript standard Symbol and Dingbats fonts.
+\usepackage{lipsum}    
+%Easy access to the Lorem Ipsum sample text.
+\usepackage{etoolbox}
+\usepackage{enumerate}           %Enumerate with redefinable labels.
+\usepackage[all]{xy}             %This is a special package for drawing diagrams.
+\usepackage[utf8]{inputenc}      %Makes all displayable utf8 characters available as input.
+\usepackage{csquotes}
+\usepackage{shellesc}
+\usepackage{fancyhdr}            %Extensive control of page headers and footers.
+\usepackage{blindtext}           %Produced 'blind' text for testing.
+\usepackage{tikz}                %To create graphic elements.
+\usepackage{amsmath}
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage[figuresright]{rotating}	%Allows large tables to be rotated to landscape.
+\usepackage{chngcntr} % Allows tables to not include chapter numbers
+%You can add more packages here if you need
+\usepackage{caption} % Allows caption formatting to be customised
+\usepackage{titlesec} % Added for changing heading and title spacing
+\usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+\DeclareLanguageMapping{american}{american-apa}
+\addbibresource{./References/References.bib}
+\bibliography{References/References}
+
+%This defines some macros that implement Latin abbreviations
+%COMMENT OUT OR DELETE IF UNDESIRED.
+\newcommand{\via}{\textit{via}} %Italicised via.
+\newcommand{\ie}{\textit{i.e.}} %Literally.
+\newcommand{\eg}{\textit{e.g.}} %For example.
+\newcommand{\etc}{\textit{etc.}} %So on...
+\newcommand{\vv}{\textit{vice versa}} %And the other way around.
+\newcommand{\viz}{\textit{viz}.} %Resulting in.
+\newcommand{\cf}{\textit{cf}.} %See, or 'consistent with'.
+\newcommand{\apr}{\textit{a priori}} %Before the fact.
+\newcommand{\apo}{\textit{a posteriori}} %After the fact.
+\newcommand{\vivo}{\textit{in vivo}} %In the flesh.
+\newcommand{\situ}{\textit{in situ}} %On location.
+\newcommand{\silico}{\textit{in silico}} %Simulation.
+\newcommand{\vitro}{\textit{in vitro}} %In glass.
+\newcommand{\vs}{\textit{versus}} %James \vs{} Pete.
+\newcommand{\ala}{\textit{\`{a} la}} %In the manner of...
+\newcommand{\apriori}{\textit{a priori}} %Before hand.
+\newcommand{\etal}{\textit{et al.}} %And others, with correct punctuation.
+\newcommand{\naive}{na\"\i{}ve} %Queen Amidala is young and \naive{}.
+
+\usepackage[T1]{fontenc}
+\usepackage[english,polish]{babel}
+
+\PassOptionsToPackage{headheight=14pt,binding offset=5mm}{geometry}
+\usepackage{fancyhdr}
+
+\fancyhf{}
+\fancyhead[LO]{\nouppercase{\rightmark}}
+\fancyhead[RE]{\nouppercase{\leftmark}}
+\fancyhead[LE,RO]{\thepage}
+\pagestyle{fancy}
+
+\addto\captionspolish{\renewcommand{\appendixname}{Appendix}} 
+
+% Requires: \usepackage{hyperref} (load it near the end of your preamble)
+\makeatletter
+\newcommand{\AppChapter}[1]{%
+  \refstepcounter{chapter}% A, B, C...
+  \setcounter{section}{0}%
+  % Printed heading: "Appendix A: Title"
+  \chapter*{\appendixname~\thechapter \ #1}%
+  % Define the clickable anchor exactly here:
+  \Hy@raisedlink{\hyper@anchorstart{chapter.\theHchapter}\hyper@anchorend}%
+  % PDF bookmark (outline)
+  \pdfbookmark[0]{\appendixname~\thechapter}{chapter.\theHchapter}%
+  % TOC entry: ONLY "Appendix A", linked to that anchor
+  \addtocontents{toc}{%
+    \protect\contentsline{chapter}{\appendixname~\thechapter}{\thepage}{chapter.\theHchapter}}%
+  % Running heads (optional)
+  \markboth{\appendixname~\thechapter}{\appendixname~\thechapter}%
+}
+\makeatother
+
+\usepackage{url}
+
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+

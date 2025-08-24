@@ -1,0 +1,93 @@
+% -- helper: force & just within a group --
+\newcommand{\blxampdelims}{%
+  \DeclareDelimFormat{finalnamedelim}{\addspace\&\space}%
+  \DeclareDelimFormat{multinamedelim}{\addspace\&\space}%
+}
+
+% Parenthetical: (Author1 & Author2, 1989)
+% - break allowed BEFORE the citation if needed
+% - citation itself is unbreakable
+\DeclareCiteCommand{\citeplink}
+  {\usebibmacro{prenote}}
+  {%
+    \penalty0 % allow a break right before the citation if it won't fit
+    \mbox{%
+      \mkbibparens{%
+        \begingroup
+          \blxampdelims
+          \bibhyperref{\printnames{labelname}}%
+        \endgroup
+        \addcomma\space
+        \bibhyperref{\printfield{labelyear}\printfield{extrayear}}%
+      }%
+    }%
+  }
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% Textual: Author1 & Author2 (1989)
+\DeclareCiteCommand{\citetlink}
+  {\usebibmacro{prenote}}
+  {%
+    \penalty0
+    \mbox{%
+      \begingroup
+        \blxampdelims
+        \bibhyperref{\printnames{labelname}}%
+      \endgroup
+      \space
+      \mkbibparens{\bibhyperref{\printfield{labelyear}\printfield{extrayear}}}%
+    }%
+  }
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% Possessive: Author’s (1989)
+\DeclareCiteCommand{\posscite}
+  {\usebibmacro{prenote}}
+  {%
+    \penalty0
+    \mbox{%
+      \begingroup
+        \blxampdelims
+        \bibhyperref{\printnames{labelname}}%
+      \endgroup
+      's\space
+      \mkbibparens{\bibhyperref{\printfield{labelyear}\printfield{extrayear}}}%
+    }%
+  }
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+% --- \citemultp{keyA,keyB,...} ---
+\makeatletter
+\newcommand{\citemultp}[1]{%
+  \mkbibparens{%
+    \begingroup
+      \def\citemultp@sep{}%
+      \forcsvlist{\citemultp@print}{#1}%
+    \endgroup
+  }%
+}
+\newcommand{\citemultp@print}[1]{%
+  \citemultp@sep
+  \entrydata*{#1}{%
+    \penalty0 % allow a break before this item
+    \mbox{%
+      \bibhyperref{%
+        \begingroup
+          \blxampdelims
+          \printnames{labelname}%
+        \endgroup
+        \addcomma\space
+        \printfield{labelyear}\printfield{extrayear}%
+      }%
+    }%
+  }%
+  \def\citemultp@sep{; \space}%
+}
+\makeatother
+
+% Make natbib-style command names use these:
+\let\parencite\citeplink   % so \citep{...} works
+\let\textcite\citetlink    % so \citet{...} works

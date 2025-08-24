@@ -1,0 +1,1 @@
+$bibtex = '/usr/local/texlive/2025/bin/x86_64-linux/biber %O %B';

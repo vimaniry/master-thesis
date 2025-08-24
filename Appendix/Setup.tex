@@ -1,0 +1,62 @@
+\section{System Setup and Configuration}
+
+\subsection{LM Studio Installation with CUDA Acceleration}
+
+LM Studio was installed on a Windows workstation with the following hardware:
+
+\begin{itemize}
+    \item Intel Core i7-9700K processor
+    \item 32\,GB DDR4 RAM
+    \item NVIDIA GeForce RTX~2080 GPU (8\,GB VRAM)
+\end{itemize}
+
+The installation process was as follows:
+
+\begin{enumerate}
+    \item \textbf{NVIDIA driver and CUDA installation} \\
+    The NVIDIA driver was updated to the latest version, and CUDA~12 was installed using the official Windows installer packages. 
+    Installation was verified with \texttt{nvidia-smi}, which is included with the driver and can be run from the command line.
+
+    \item \textbf{LM Studio installation} \\
+    LM Studio was downloaded from the official distribution and installed using the Windows installer.
+
+    \item \textbf{Model download and execution} \\
+    The desired model was obtained directly through the LM Studio interface. 
+    GPU inference was automatically enabled and confirmed operational with the RTX~2080.
+
+    \item \textbf{API server configuration} \\
+    Within LM Studio, the API server was enabled to allow external applications to send inference requests.
+\end{enumerate}
+
+\subsection{4CAT Deployment on Windows with Docker Desktop}
+
+4CAT was deployed on a laptop running Windows 11 using Docker Desktop. The procedure was as follows:
+
+\begin{enumerate}
+    \item \textbf{Docker Desktop installation} \\
+    Docker Desktop was installed, providing both the Docker Engine and Docker Compose.
+
+    \item \textbf{Repository setup} \\
+    The 4CAT repository was downloaded from GitHub via \texttt{git} using Git Bash:
+    \begin{verbatim}
+    git clone https://github.com/digitalmethodsinitiative/4cat.git
+    \end{verbatim} 
+
+    \item \textbf{Configuration} \\
+    A \texttt{.env} file was created from the provided template and adjusted minimally to configure authentication and database storage. 
+    The service was configured to run on port~80.
+
+    \item \textbf{Service orchestration} \\
+    The repository directory was opened in PowerShell, and the services were started with:
+    \begin{verbatim}
+    docker compose up -d
+    \end{verbatim} 
+
+    \item \textbf{Verification} \\
+    The application was made available locally at \url{http://localhost/} 
+
+    \item \textbf{Connecting to LM Studio} \\
+    To enable integration with LM Studio, the API server had to be enabled first within LM Studio. 
+    The API base path (consisting of the workstation IP address followed by \texttt{/v1}) was then provided in the 4CAT interface under the options for the "LLM prompting" task. 
+    This allowed 4CAT to route inference requests directly to the LM Studio backend.
+\end{enumerate}

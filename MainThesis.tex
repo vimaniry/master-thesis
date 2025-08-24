@@ -1,0 +1,102 @@
+\PassOptionsToPackage{hidelinks}{hyperref}
+
+\documentclass[book,twoside,openright]{StylesAndSettings/thesis}
+\setlength{\footskip}{9mm}
+\input{StylesAndSettings/LaTexPackages.tex}
+\title{PiS as Mnemonic Warriors \\
+\Large A Comporative Analysis of Changes and Continuity of Memory Narratives in the Election Campaigns 2015 and 2023}
+\author{Viktoria Rybicki, BA}
+\date{\{year\}}
+
+\let\oldaddcontentsline\addcontentsline
+\renewcommand{\addcontentsline}[3]{}
+
+\begin{document}
+
+\include{StylesAndSettings/cite_patch}
+
+\renewcommand{\hbar}{\mathchar'26\mkern-7.5mu h}
+
+\frontmatter
+\maketitle
+\clearpage
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+\pagestyle{plain}
+\section
+\normalfont
+\input{./PreliminaryPages/Declaration.tex}
+
+\clearpage
+
+\dedication{To my fianceé, my friends and family \\ Thank you for your love and support}
+\clearpage
+
+\newpage\null\thispagestyle{empty}\newpage
+
+\pagestyle{fancyplain}
+\normalfont
+\input{./PreliminaryPages/Abstract.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+\clearpage
+\let\cleardoublepage=\clearpage 
+
+\selectlanguage{english}
+\tableofcontents
+
+\let\addcontentsline\oldaddcontentsline
+
+\pagenumbering{arabic}
+
+\mainmatter
+
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{\baselineskip}
+
+\raggedbottom
+
+%CHAPTER 1
+\input{./Chapter1/Introduction.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%CHAPTER 2
+\input{./Chapter2/Conceptualization.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%CHAPTER 3
+\input{./Chapter3/Methodology.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
+
+%CHAPTER 4
+\input{./Chapter4/Analysis.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%CHAPTER 5
+\input{./Chapter5/Discussion.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+
+%CONCLUSION CHAPTER
+\input{./Conclusion/Conclusion.tex}
+
+\newpage\null\thispagestyle{empty}\newpage
+\newpage\null\thispagestyle{empty}\newpage
+
+\printbibliography
+
+\appendix
+
+\include{./Appendix/Appendix}
+
+\end{document}

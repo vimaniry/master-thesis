@@ -1,0 +1,73 @@
+\ProvidesPackage{StylesAndSettings/title}
+\RequirePackage{graphicx}
+
+\newcommand{\dedication}[1]{%%
+   \thispagestyle{empty}
+   \begin{center}%
+    \vspace*{2cm}%
+    {\fontfamily{\rmdefault}\selectfont%
+    	\textit{\Large {#1}}%
+	}%
+  \end{center}%
+}
+
+\renewcommand*{\maketitle}{%
+\pagestyle{empty}	
+\rmfamily					
+
+\noindent
+\vfill
+\begin{center}
+	\includegraphics[width=.22\textwidth]{./StylesAndSettings/UniversityLogos/university-of-glasgow-logo}
+    \hspace{12 pt}
+	\includegraphics[width=.22\textwidth]{./StylesAndSettings/UniversityLogos/jagiellonian-university-logo}
+    \hspace{12 pt}
+    \includegraphics[width=.30\textwidth]{./StylesAndSettings/UniversityLogos/university-of-tartu-logo}
+\end{center}
+
+\vspace{12 pt}
+
+\begin{center}
+    Jagiellonian University in Kraków \\
+    Faculty of International and Political Studies \\
+    Institute of European Studies 
+\end{center}
+
+\vspace{50 pt}
+
+\begin{center}
+    \textbf{\Large
+	\thetitle \\}
+\end{center}
+
+\vspace{2 pt}
+
+\begin{center}
+    CEERES Master’s Thesis
+\end{center}
+
+\vspace{35 pt}
+
+\begin{center}
+	
+        \theauthor \\
+        Student ID: 1209415
+\end{center}
+
+\vspace{10 pt}
+
+\vfill
+
+\begin{center}
+    Supervisors: \\
+	Louis Wierenga, PhD candidate, University of Tartu \\
+    Dr. Grzegorz Pożarlik, Jagellonian University
+\end{center}
+
+\vspace{40 pt}
+
+\begin{center}
+    August, 2025 \\
+    Krakow, Poland
+\end{center}
+}
